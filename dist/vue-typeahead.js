@@ -39,13 +39,14 @@ var main = {
 
       this.loading = true
 
-      this.fetch().then((response) => {
-        if (this.query) {
+      var that = this;
+      this.fetch().then(function(response) {
+        if (that.query) {
           let data = response.data
-          data = this.prepareResponseData ? this.prepareResponseData(data) : data
-          this.items = this.limit ? data.slice(0, this.limit) : data
-          this.current = -1
-          this.loading = false
+          data = that.prepareResponseData ? that.prepareResponseData(data) : data
+          that.items = that.limit ? data.slice(0, that.limit) : data
+          that.current = -1
+          that.loading = false
         }
       })
     },
