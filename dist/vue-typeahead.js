@@ -42,7 +42,7 @@ var main = {
       var that = this;
       this.fetch().then(function(response) {
         if (that.query) {
-          let data = response.data
+          var data = response.data
           data = that.prepareResponseData ? that.prepareResponseData(data) : data
           that.items = that.limit ? data.slice(0, that.limit) : data
           that.current = -1
@@ -60,7 +60,7 @@ var main = {
         return vue.util.warn('You need to set the `src` property', this)
       }
 
-      let queryParam = {
+      var queryParam = {
         [this.queryParamName]: this.query
       }
 
